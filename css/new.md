@@ -3,4 +3,9 @@
 - mix-blend-mode/background-blend-mode 混合模式
 - position: sticky  固定导航栏
 - overscroll-behavior 滚动边界和滚动链接
-- break-inside：avoid 多列布局
+- 多列布局
+  > {
+      -webkit-column-break-inside: avoid;  /* Chrome, Safari, Opera */
+      page-break-inside: avoid;    /* Firefox */
+      break-inside: avoid;    /* IE 10+ */
+  > }
