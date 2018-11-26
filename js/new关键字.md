@@ -13,6 +13,26 @@
 > 3.  这个新对象会绑定到函数调用的 this。
 > 4.  如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。
 
+```javascript
+function Foo() {}
+var f = new Foo();
+
+// new所做的事：
+var o1 = {}; // 创建一个新对象
+
+o1.__proto__ = Foo.prototype; // 原型连接
+
+var o2 = Foo.call(o1); // 改变this指向
+
+if (typeof o2 === 'object') {
+  //判断Foo内部有没有返回对象
+  return o2;
+} else {
+  // 没有则返回刚创建的新对象
+  return o1;
+}
+```
+
 ---
 
 ##### 自我理解 :blush:
