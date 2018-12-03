@@ -12,3 +12,4 @@
       break-inside: avoid;    /* IE 10+ */
   > }
 - document.activeElement.scrollIntoView
+- text-align-last // text-align:justify 对最后一行文本无效
