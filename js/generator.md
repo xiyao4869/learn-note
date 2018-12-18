@@ -328,3 +328,110 @@ console.log('outside:', it.next(4).value);
 // inside *bar(): 4
 // outside: F
 ```
+
+```javascript
+// yield..和像a = 3这样的赋值表达式有同样的“表达式优先级”
+var a, b;
+
+a = 3;
+b = 2 + a = 3;   // 不合法
+b = 2 + (a = 3); // 合法
+
+yield 3;
+a = 2 + yield 3;   // 不合法
+a = 2 + (yield 3); // 合法
+```
+
+##### yield\* 委托
+
+使用 yield..，表达式的完成值来自于用 it.next(..) 恢复生成器的值，而对于 yield\*.. 表达式来说，完成值来自于被委托的迭代器的返回值(如果有的话)
+
+```javascript
+function* foo() {
+  yield 1;
+  yield 2;
+  yield 3;
+  return 4;
+}
+function* bar() {
+  var x = yield* foo();
+  console.log('x:', x);
+}
+for (var v of bar()) {
+  console.log(v);
+}
+// 1 2 3
+// x: 4
+
+// 生成器递归
+function* foo(x) {
+  if (x < 3) {
+    x = yield* foo(x + 1);
+  }
+  return x * 2;
+}
+var it = foo(1);
+it.next(); // { value: 24, done: true }
+
+// 第一个 *foo(..) 运 行x值为1，满足x < 3。x + 1被递归地传给*foo(..)，所以这一次x为2。再次的递归 调用使得 x 值为 3。现在，因为不满足 x < 3，递归停止，返回 3 * 2 也就是 6 给前一个调用的 yield *.. 表达 式，这个值被赋给x。再次返回6 * 2的结果12给前一次调用的x。最后是12 * 2，也就 是 24，返回给 *foo() 生成器的完成结果.
+
+// 在上面的例子中，生成器没有真正暂停，因为并没有yield ..表达式。相反，yield *只 是通过递归调用保存当前的迭代步骤。所以，只要一次调用迭代器的 next() 函数就运行了 整个生成器。
+```
+
+```javascript
+function* foo() {
+  try {
+    yield 1;
+  } catch (err) {
+    console.log(err);
+  }
+  yield 2;
+  throw 'Hello!';
+}
+var it = foo();
+console.log(it.next()); // { value: 1, done: false }
+try {
+  console.log(it.throw('Hi!')); // Hi!  // { value: 2, done: false }
+  console.log(it.next());
+  console.log('never gets here');
+} catch (err) {
+  console.log(err); // Hello!
+}
+```
+
+```javascript
+// 0 初始态、1 等待 yield 表达式完成、2 生成器完毕
+function foo() {
+  function nextState(v) {
+    switch (state) {
+      case 0:
+        state++;
+        // yield表达式
+        return 42;
+      case 1:
+        state++;
+        // yield表达式完成
+        x = v;
+        console.log(x);
+        // 隐式return
+        return undefined;
+      // 不需要处理状态2
+    }
+  }
+  var state = 0,
+    x;
+  return {
+    next: function(v) {
+      var ret = nextState(v);
+      return { value: ret, done: state == 2 };
+    }
+    // 省略return(..)和throw(..)
+  };
+}
+
+var it = foo();
+
+it.next(); // { value: 42, done: false }
+
+it.next(10); // 10  // { value: undefined, done: true }
+```

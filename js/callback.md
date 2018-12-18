@@ -60,10 +60,14 @@ Promise.resolve(fn()).then(function(v) {
 });
 ```
 
-reject(..) 就是拒绝这个 promise;但 resolve(..) 既可能完成 promise，也可能拒绝，要根据传入参数而定。如果传给 resolve(..) 的是一个非 Promise、非 thenable 的立即值，这个 promise 就会用这个值完成。
+resolve(..) 和 Promise.resolve(..) 可以接受 promise 并接受它的状态 / 决议，而 reject (..) 和 Promise.reject(..) 并不区分接收的值是什么。所以，如果传入 promise 或 thenable 来拒绝， 这个 promise / thenable 本身会被设置为拒绝原因，而不是其底层值。
+
+reject(..) 就是拒绝这个 promise; 但 resolve(..) 既可能完成 promise，也可能拒绝，要根据传入参数而定。如果传给 resolve(..) 的是一个非 Promise、非 thenable 的立即值，这个 promise 就会用这个值完成。
 但是，如果传给 resolve(..) 的是一个真正的 Promise 或 thenable 值，这个值就会被递归展开，并且(要构造的)promise 将取用其最终决议值或状态。
 
-then(..) 接受一个或两个参数:第一个用于完成回调，第二个用于拒绝回调。如果两者中的任何一个被省略或者作为非函 数值传入的话，就会替换为相应的默认回调。默认完成回调只是把消息传递下去，而默认拒绝回调则只是重新抛出(传播)其接收到的出错原因。catch(..) 只接受一个拒绝回调作为参数，并自动替换默认完成回调。
+then(..) 接受一个或两个参数:第一个用于完成回调，第二个用于拒绝回调。如果两者中的任何一个被省略或者作为非函数值传入的话，就会替换为相应的默认回调。默认完成回调只是把消息传递下去，而默认拒绝回调则只是重新抛出(传播)其接收到的出错原因。catch(..) 只接受一个拒绝回调作为参数，并自动替换默认完成回调。
+
+Promise.all([ ]) 将会立即完成(没有完成值)，Promise.race([ ]) 将会永远挂起
 
 ```javascript
 var rejectedPr = new Promise(function(resolve, reject) {
