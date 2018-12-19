@@ -18,7 +18,7 @@ c; // [1,2,3]
 
 ##### Array.from(..)
 
-Array.from(..) 接收一个可选的第三个参 数，如果设置了的话，这个参数为作为第二个参数传入的回调指定 this 绑 定。否则，this 将会是 undefined。
+Array.from(..) 接收一个可选的第三个参 数，如果设置了的话，这个参数为作为第二个参数传入的回调指定 this 绑定。否则，this 将会是 undefined。
 
 ```javascript
 var arrLike = {
