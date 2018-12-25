@@ -68,6 +68,72 @@ f[Symbol.iterator]() === f; // true
 
 ---
 
+##### :cherries: 异步迭代器
+
+```javascript
+const skyle = {
+  [Symbol.asyncIterator]: () => {
+    const items = ['s', 'k', 'y', 'l', 'e'];
+    return {
+      next: () =>
+        Promise.resolve({
+          done: items.length === 0,
+          value: items.shift()
+        })
+    };
+  }
+};
+
+(async function() {
+  for await (const item of skyle) {
+    console.log(item);
+  }
+})();
+```
+
+##### :snowflake: 异步生成器
+
+```javascript
+// 异步生成器是异步函数和生成器的合体
+async function* asyncRandomNumbers() {
+  // This is a web service that returns a random number
+  const url =
+    'https://www.random.org/decimal-fractions/?num=1&dec=10&col=1&format=plain&rnd=new';
+
+  while (true) {
+    const response = await fetch(url);
+    const text = await response.text();
+    yield Number(text);
+  }
+}
+
+async function example() {
+  for await (const number of asyncRandomNumbers()) {
+    console.log(number);
+    if (number > 0.95) break;
+  }
+}
+example();
+```
+
+---
+
+```javascript
+async function* gen() {
+  yield await Promise.resolve(88);
+  yield await new Promise(function(resolve, reject) {
+    setTimeout(() => {
+      resolve('hello xiyao');
+    });
+  });
+}
+(async function() {
+  for await (let v of gen()) {
+    console.log(v);
+  }
+})();
+```
+
 ##### :green_apple: generator 异步应用
 
 ```javascript
