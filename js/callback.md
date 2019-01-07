@@ -23,6 +23,8 @@ setTimeout(..) 所做的是设定一个定时器, 当定时器到时后，环境
 
 ##### :cherries: Promise
 
+https://mp.weixin.qq.com/s/Wv3ZiaZzIP6pFdHHwnvk5w
+
 resolve / reject: 作为 Promise 暴露给第三方库的 API 接口，在异步操作完成时由第三方库调用，从而改变 Promise 的状态。
 fulfilled / rejected / pending : 标识了一个 Promise 当前的状态。
 then : 作为 Promise 暴露给第一方代码的接口，在此传入【原本直接传给第三方库】的回调函数。
