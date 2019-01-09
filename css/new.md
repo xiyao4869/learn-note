@@ -13,6 +13,8 @@
   > }
 - document.activeElement.scrollIntoView
 - text-align-last // text-align:justify 对最后一行文本无效
+- box-decoration-break: clone; // 指定元素片段在跨行、跨列或跨页（如打印）时候的样式渲染表现
+- scroll-snap-type/scroll-snap-align //网页容器滚动停止的时候，自动平滑定位到指定元素的指定位置
 
 ##### Element.scrollIntoView VS Element.scrollIntoViewIfNeeded
 
