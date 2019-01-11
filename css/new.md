@@ -5,6 +5,7 @@
 - mix-blend-mode/background-blend-mode 混合模式
 - position: sticky  固定导航栏
 - overscroll-behavior 滚动边界和滚动链接
+- scroll-behavior:smooth 平滑滚动
 - 多列布局
   > {
       -webkit-column-break-inside: avoid;  /* Chrome, Safari, Opera */
@@ -15,6 +16,7 @@
 - text-align-last // text-align:justify 对最后一行文本无效
 - box-decoration-break: clone; // 指定元素片段在跨行、跨列或跨页（如打印）时候的样式渲染表现
 - scroll-snap-type/scroll-snap-align //网页容器滚动停止的时候，自动平滑定位到指定元素的指定位置
+- color-adjust:economy // 是否允许浏览器自己调节颜色
 
 ##### Element.scrollIntoView VS Element.scrollIntoViewIfNeeded
 
@@ -35,3 +37,12 @@
     <input type="submit" value="提交">
 </form>
 ```
+
+##### scss
+
+scss 写法: http://www.ruanyifeng.com/blog/2012/06/sass.html
+
+##### 占位图
+
+http://dummyimage.com/120x120
+http://img.la/190x80
