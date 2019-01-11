@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>圣杯布局</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .wrapper {
+      padding: 0 200px;
+      height: 400px;
+      min-width: 400px;
+    }
+    .middle {
+      width: 100%;
+      height: 100%;
+      background: yellowgreen;
+    }
+    .middle,
+    .left,
+    .right {
+      float: left;
+      font-size: 30px;
+      color: #fff;
+    }
+    .left {
+      position: relative;
+      background: orange;
+      width: 200px;
+      height: 100%;
+      margin-left: -100%; /* 以父元素wrapper的宽度为基准 */
+      left: -200px;
+    }
+    .right {
+      position: relative;
+      background: cyan;
+      width: 200px;
+      height: 100%;
+      margin-left: -200px;
+      right: -200px;
+    }
+
+    /* flex圣杯布局 */
+    .flex-wrapper {
+      display: flex;
+      height: 200px;
+      margin-top: 200px;
+      font-size: 30px;
+      color: #fff;
+    }
+    .m {
+      order: 2;
+      flex: 1 1 auto;
+      height: 100%;
+      background: yellowgreen;
+    }
+    .l {
+      order: 1;
+      flex: 200px 0 0;
+      height: 100%;
+      background: orange;
+    }
+    .r {
+      order: 3;
+      flex: 200px 0 0;
+      height: 100%;
+      background: cyan;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div class="middle">middle</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+
+    <!-- flex圣杯布局 -->
+    <div class="flex-wrapper">
+      <div class="m">middle</div>
+      <div class="l">left</div>
+      <div class="r">right</div>
+    </div>
+  </body>
+</html>

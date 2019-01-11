@@ -9,7 +9,7 @@
   > {
       -webkit-column-break-inside: avoid;  /* Chrome, Safari, Opera */
       page-break-inside: avoid;    /* Firefox */
-      break-inside: avoid;    /* IE 10+ */
+      break-inside: avoid;    /* IE 10+ */ 避免在元素内部插入分页符
   > }
 - document.activeElement.scrollIntoView
 - text-align-last // text-align:justify 对最后一行文本无效

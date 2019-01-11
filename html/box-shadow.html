@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>box-shadow</title>
+  </head>
+  <style>
+    /* box-shadow 前四个参数 x 偏移值、y 偏移值 、模糊半径、扩张半径 */
+    /* https://chokcoco.github.io/CSS-Inspiration/#/./layout/flex-waterfalls-flow */
+    div {
+      width: 30px;
+      height: 30px;
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #ccc;
+    }
+    .top {
+      /* 模糊半径、扩张半径相互抵消 */
+      box-shadow: 0 -8px 8px -8px cyan;
+    }
+    .right {
+      box-shadow: 8px 0 8px -8px cyan;
+    }
+    .bottom {
+      box-shadow: 0 8px 8px -8px cyan;
+    }
+    .left {
+      box-shadow: -8px 0 8px -8px cyan;
+    }
+  </style>
+  <body>
+    <div class="top">top</div>
+    <div class="right">right</div>
+    <div class="bottom">bottom</div>
+    <div class="left">left</div>
+  </body>
+</html>
