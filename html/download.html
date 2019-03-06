@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>下载json</title>
+  </head>
+  <body>
+    <script>
+      // 创建一个json类型的Blob对象，支持传入同类型数据的一个数组
+
+      var debug = { hello: 'world' };
+
+      var blob = new Blob(
+        [JSON.stringify(debug, null, 2)],
+
+        { type: 'application/json' }
+      );
+
+      var reader = new FileReader();
+
+      reader.addEventListener('loadend', function() {
+        console.log(reader.result);
+        var element = document.createElement('a');
+        element.href = reader.result;
+        element.download = 'file1.json';
+        element.innerHTML = '下载文件链接';
+        document.body.appendChild(element);
+      });
+
+      reader.readAsDataURL(blob);
+
+     
+      // var url = URL.createObjectURL(blob);
+      // var element = document.createElement('a');
+      // element.href = url;
+      // element.download = 'file.json';
+      // element.innerHTML = '下载文件链接';
+      // document.body.appendChild(element);
+    </script>
+  </body>
+</html>
