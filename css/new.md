@@ -46,3 +46,4 @@ scss 写法: http://www.ruanyifeng.com/blog/2012/06/sass.html
 
 http://dummyimage.com/120x120
 http://img.la/190x80
+https://placem.at/things?w=250&h=250

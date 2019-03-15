@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>流光字体</title>
+  <style>
+    /* webkit内核适用 */
+    .text {
+      /* 图片背景字体 */
+      /* font-size: 128px;
+      font-weight: 600;
+      font-style: italic;
+      -webkit-text-fill-color: transparent;
+      background-image: url(../images/nature-2.jpg);
+      background-clip: text;
+      -webkit-background-clip: text; */
+
+      /* 流光字体 */
+      font-size: 128px;
+      font-weight: 600;
+      font-style: italic;
+      background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-background-size: 200% 100%;
+      -webkit-animation: masked-animation 3s infinite linear;
+
+
+      /* 描边 */
+      /* font-size: 128px;
+      font-weight: 600;
+      font-style: italic;
+      color: #ccc;
+      -webkit-text-stroke: 1px #f00;
+      -webkit-animation: cliptext 7.5s linear infinite; */
+    }
+
+    @-webkit-keyframes masked-animation {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    @-webkit-keyframes cliptext {
+      0% {
+        -webkit-text-stroke: 1px #c00;
+      }
+
+      25% {
+        -webkit-text-stroke: 1px #ff0;
+      }
+
+      50% {
+        -webkit-text-stroke: 1px #090;
+      }
+
+      75% {
+        -webkit-text-stroke: 1px #00f;
+      }
+
+      100% {
+        -webkit-text-stroke: 1px #93c;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text">hello world</div>
+</body>
+
+</html>
