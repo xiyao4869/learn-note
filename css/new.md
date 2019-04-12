@@ -46,4 +46,15 @@ scss 写法: http://www.ruanyifeng.com/blog/2012/06/sass.html
 
 http://dummyimage.com/120x120
 http://img.la/190x80
+http://via.placeholder.com/150x150
 https://placem.at/things?w=250&h=250
+
+##### 安全区域(safe area) iphoneX
+```css
+env(safe-area-inset-bottom)
+```
+
+##### 根据点的位置获取元素
+```js
+document.elementFromPoint(x,y)
+```

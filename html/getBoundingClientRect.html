@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>getBoundingClientRect</title>
+  <style>
+    .test {
+      width: 150px;
+      height: 150px;
+      background: pink;
+      padding: 20px 0 0 20px;
+    }
+
+    .inner {
+      width: 60px;
+      height: 60px;
+      background: greenyellow;
+    }
+
+    .wrapper {
+      width: 500px;
+      height: 500px;
+      background: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="test">text
+      <div class="inner">hahhah</div>
+    </div>
+  </div>
+  <script>
+    var ele = document.getElementsByClassName('test')[0];
+    console.log(ele.getBoundingClientRect());
+    console.log(ele.getClientRects());
+
+  </script>
+</body>
+
+</html>

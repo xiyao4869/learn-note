@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .slider {
+      padding: 5px 0;
+      position: relative;
+      margin: 30px 10%;
+      --percent: 0;
+    }
+
+    .slider-track {
+      display: block;
+      width: 100%;
+      height: 6px;
+      background-color: lightgray;
+      border: 0;
+      padding: 0;
+    }
+
+    .slider-track::before {
+      content: '';
+      display: block;
+      height: 100%;
+      background-color: skyblue;
+      width: calc(1% * var(--percent));
+    }
+
+    .slider-thumb {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 0;
+      padding: 0;
+      background: #fff;
+      box-shadow: 0 0 0 1px skyblue;
+      border-radius: 50%;
+      left: calc(1% * var(--percent));
+      top: 0;
+      margin: auto -8px;
+    }
+
+    #percent {
+      text-align: center;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    class Slider {
+      constructor() {
+        this.init();
+        this.setPercent(66);
+        this.touchHandler();
+      }
+      init() {
+        var body = document.getElementsByTagName('body')[0];
+        var ele = document.createElement('div');
+        ele.setAttribute('class', 'slider');
+        ele.innerHTML = `<button class="slider-track"></button><button class="slider-thumb"></button><div id="percent"></div>`;
+        body.appendChild(ele);
+        this.slider = document.getElementsByClassName('slider')[0];
+        this.thumb = document.getElementsByClassName('slider-thumb')[0];
+        this.width = this.slider.offsetWidth;
+      }
+      getPercent() {
+        return getComputedStyle(this.slider).getPropertyValue('--percent');
+      }
+      setPercent(percent) {
+        var element = document.getElementById('percent');
+        this.slider.style.setProperty('--percent', percent);
+        element.innerHTML = percent;
+      }
+
+      touchHandler() {
+        function move(e) {
+          let { left } = this.slider.getBoundingClientRect();
+          this.setPercent(Math.round((e.pageX - left) / this.width * 100));
+        }
+        this.slider.onmousedown = function (e) {
+          move.call(this, e);
+          if (e.target !== this.thumb) return;
+          this.slider.onmousemove = move.bind(this);
+          this.slider.onmouseup = function () {
+            this.slider.onmousemove = null;
+          }.bind(this)
+        }.bind(this)
+      }
+    }
+
+    var test = new Slider();
+  </script>
+</body>
+
+</html>

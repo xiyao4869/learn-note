@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>正方形</title>
-    <style>
-      .square {
-        width: 50%;
-        background: #ccc;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
-      .square:after {
-        content: '';
-        display: block;
-        padding-bottom: 100%;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>正方形</title>
+  <!-- margin、padding百分比值都是相对于父元素宽度而言 -->
+  <style>
+    .square {
+      width: 50%;
+      background: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .content {
-        width: 120px;
-        height: 120px;
-        line-height: 120px;
-        text-align: center;
-        background: orange;
-      }
+    .square:after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
 
-      /* 两列等高 */
-      .wrapper {
-        overflow: hidden;
-      }
-      .wrapper .left {
-        float: left;
-        width: 20%;
-        height: 100px;
-        padding-bottom: 1000px;
-        margin-bottom: -1000px;
-        background: pink;
-      }
-      .wrapper .right {
-        float: left;
-        width: 80%;
-        height: 500px;
-        background: blue;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="square">
-      <div class="content">
-        Hello!
-      </div>
+    .content {
+      width: 120px;
+      height: 120px;
+      line-height: 120px;
+      text-align: center;
+      background: orange;
+    }
+
+    /* 两列等高 */
+    .wrapper {
+      overflow: hidden;
+    }
+
+    .wrapper .left {
+      float: left;
+      width: 20%;
+      height: 100px;
+      padding-bottom: 1000px;
+      margin-bottom: -1000px;
+      background: pink;
+    }
+
+    .wrapper .right {
+      float: left;
+      width: 80%;
+      height: 500px;
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="square">
+    <div class="content">
+      Hello!
     </div>
+  </div>
 
-    <!-- 两列等高 -->
-    <div class="wrapper">
-      <div class="left">left</div>
-      <div class="right">right</div>
-    </div>
-  </body>
+  <!-- 两列等高 -->
+  <div class="wrapper">
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+
 </html>
