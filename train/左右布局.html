@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    dl {
+      line-height: 1.5;
+      margin: 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    dd {
+      word-break: break-all;
+      text-align: right;
+      margin: -1.5em 0 0 5em;
+    }
+
+    dd:empty::before {
+      content: '-';
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <dl>
+    <dt>姓名</dt>
+    <dd>hello world</dd>
+    <dt>时间</dt>
+    <dd>2019-07-12 11:00</dd>
+    <dt>年龄</dt>
+    <dd></dd>
+    <dt>备注</dt>
+    <dd>hello dsfsdfdsfdsfdgdgsfsf</dd>
+  </dl>
+</body>
+
+</html>

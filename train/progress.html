@@ -62,6 +62,7 @@
         this.touchHandler();
       }
       init() {
+        // body元素可直接获取 document.body
         var body = document.getElementsByTagName('body')[0];
         var ele = document.createElement('div');
         ele.setAttribute('class', 'slider');
@@ -69,6 +70,7 @@
         body.appendChild(ele);
         this.slider = document.getElementsByClassName('slider')[0];
         this.thumb = document.getElementsByClassName('slider-thumb')[0];
+        // 宽度获取应该在点击时获取 不然缩放窗口会有问题
         this.width = this.slider.offsetWidth;
       }
       getPercent() {
@@ -81,10 +83,14 @@
       }
 
       touchHandler() {
+        // pageX 是相对于页面, getBoundingClientRect 的left是相对于可视区, 有横向滚动条时会有bug, 可以用clientX
         function move(e) {
           let { left } = this.slider.getBoundingClientRect();
+          // 可使用offsetX
+          // 没做边界值判断
           this.setPercent(Math.round((e.pageX - left) / this.width * 100));
         }
+        // 使用addEventListener
         this.slider.onmousedown = function (e) {
           move.call(this, e);
           if (e.target !== this.thumb) return;

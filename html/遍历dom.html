@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="test">
+    12345
+    <div>123<span>23<i>888</i></i></span></div>
+    <span>455</span>
+    <div><img src="" alt=""></div>
+  </div>
+  <script>
+    function fn(ele) {
+      if (ele && ele.nodeType === 1) {
+        console.log(ele.tagName, ele);
+      }
+      for (var i = 0; i < ele.childNodes.length; i++) {
+        if (ele.childNodes[i].nodeType === 1) {
+          fn(ele.childNodes[i]);
+        }
+      }
+    }
+    fn(document);
+  </script>
+</body>
+
+</html>

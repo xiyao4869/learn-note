@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // https://mp.weixin.qq.com/s/cGv0cVOlDrLxp5PIOOTwTg
+
+    window.addEventListener('error', function (e) {
+      // 静态资源加载错误
+      console.log(e);
+    }, true)
+
+    // function report() {
+    //   new Image().src = "/api/test";
+    // }
+  </script>
+</head>
+
+<body>
+  <img src="./a.png" alt="">
+  <!-- <script>
+    window.onerror = function (e) {
+      console.log(e);
+      return true;
+    }
+    try {
+      var a = 123;
+      setTimeout(() => {
+        console.log(ab);
+      }, 1000)
+    } catch (e) {
+      console.log('catch', e)
+    }
+
+
+  </script> -->
+</body>
+
+</html>

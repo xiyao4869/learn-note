@@ -58,3 +58,9 @@ env(safe-area-inset-bottom)
 ```js
 document.elementFromPoint(x,y)
 ```
+
+##### div 聚焦
+```html
+<div tabindex="-1"></div>
+```
+https://www.cnblogs.com/visugar/p/7247425.html

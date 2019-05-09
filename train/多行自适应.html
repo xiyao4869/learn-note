@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 60px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .wrapper>div {
+      width: 18%;
+      padding-bottom: 18%;
+      margin-bottom: 2.5%;
+    }
+
+    .wrapper>div:not(:nth-of-type(5n)) {
+      margin-right: 2.5%;
+    }
+
+    .wrapper>div:nth-of-type(1) {
+      background: rgb(68, 68, 68);
+    }
+
+    .wrapper>div:nth-of-type(2) {
+      background: rgb(139, 139, 139);
+    }
+
+    .wrapper>div:nth-of-type(3) {
+      background: rgb(194, 138, 106);
+    }
+
+    .wrapper>div:nth-of-type(4) {
+      background: rgb(240, 202, 108);
+    }
+
+    .wrapper>div:nth-of-type(5) {
+      background: rgb(172, 74, 68);
+    }
+
+    .wrapper>div:nth-of-type(6) {
+      background: rgb(79, 33, 143);
+    }
+
+    .wrapper>div:nth-of-type(7) {
+      background: rgb(229, 229, 229);
+    }
+
+    .active {
+      /* outline 不占用空间 但会占用active样式 */
+      box-shadow: 0 0 0 4px rgb(39, 39, 39);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 选中态使用radio 或 checkbox, 语义好, 无需js控制, form 表单可直接获取其值 -->
+  <div class="wrapper">
+    <div></div>
+    <div></div>
+    <div class="active"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>
