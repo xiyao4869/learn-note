@@ -8,6 +8,8 @@ git push --delete origin branch //删除远程分支
 git branch -m oldbranch newbranch  //重命名本地分支
 git log --diff-filter=D --summary  //查看被删除的文件
 git checkout commitId~1 filename  //恢复被删除的文件，commitId为上个命令看到的被删除文件所在的commitID
+cd ~/.oh-my-zsh/plugins/git 查看别名配置
+alias gcmsg // gcmsg='git commit -m'
 ```
 
 ps -ef | grep nginx 查询进程号
