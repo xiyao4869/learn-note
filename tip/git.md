@@ -4,6 +4,10 @@ git stash -u   // 与git stash 相比会保存未add的文件
 git add -p     // add 一个文件的一部分
 tig status
 git cherry-pick  // 提取某次提交
+git push --delete origin branch //删除远程分支
+git branch -m oldbranch newbranch  //重命名本地分支
+git log --diff-filter=D --summary  //查看被删除的文件
+git checkout commitId~1 filename  //恢复被删除的文件，commitId为上个命令看到的被删除文件所在的commitID
 ```
 
 ps -ef | grep nginx 查询进程号
