@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      border: 1px solid #ccc;
+      /* 方法三： 幽灵空白节点最小化 */
+      /* font-size: 0; */ 
+      /* line-height: 0; */
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      /* display: block;  方法一：图片块状化 */
+      /* 方法二： baseline对齐之外的属性值 */
+      vertical-align: bottom;  
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="../images/2.png" alt="">
+  </div>
+</body>
+</html>
