@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+    .page {
+      height: 100%;
+      overflow: auto;
+    }
+    .page div {
+      height: 2000px;
+    }
+    .fixed {
+      position: absolute;
+      left: 0;
+      top: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div></div>
+  </div>
+  <div class="fixed">固定定位元素</div>
+</body>
+</html>

@@ -58,4 +58,53 @@ vertical-align:middle 定义是元素的中线和字符 x 中心点对齐。
 虽然同属线性类属性值，但是 top/bottom 和 baseline/middle 却是完全不同的两个帮派，前者对齐看边缘看行框盒子，而后者是和字符 x 打交道。
 
 11. 小图标与文字对齐场景，可设置图标高度为1ex，那么默认基线对齐，不需要再写vertical-align: middle
+
+12.  .ell {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .ell-rows-2 {
+       display: -webkit-box;
+       -webkit-box-orient: vertical;
+       -webkit-line-clamp: 2;
+    }
+
+13. position: absolute; 针对于padding-box定位，overflow: hidden; 也相对于content-box裁剪，position: relative 和 static 则是相对于content-box定位; position: absolute;父级没有任何定位时，不设置top\left值，就在原来的位置，无依赖定位，不占据空间。
+相对于文字定位的小图标，position: absolute;具有包裹性，可利用white-space: nowrap; 去除包裹性，使用最大可用宽度
+
+14. 最佳可访问性隐藏 .clip {
+      position: absolute;
+      clip: rect(0 0 0 0);
+    }
+
+15. 设置了对立定位属性的绝对定位元素的表现神似普通的 <div>元素，无论设置 padding 还是 margin，其占据的空间一直不变，变化的就是 content box 的尺寸，这就是典型的流体表现特性。
+当绝对定位元素处于流体状态的时候，各个盒模型相关属性的解析和普通流体元素都是一 模一样的，margin 负值可以让元素的尺寸更大，并且可以使用 margin:auto 让绝对定位元 素保持居中。
+.element {
+  width: 300px; height: 200px;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+}
+
+16. relative 的定位还有另外两点值得一提:相对定位元素的 left/top/right/bottom 的百分比值是相对于包含块计算的，而不是自身。注意，虽然定位位移是相对自身，但是百分比值的计算值不是。
+relative 的最小化
+
+17. https://demo.cssworld.cn/7/5-1.php
+z-index 一旦变成数值，哪怕是 0，就会创建一个层叠上下文
+
+18. 1ch 表示一个 0 字符的宽度
+
+19. .justify {
+      text-align: justify;
+      font-size: .1px;
+      font-size: -webkit-calc(0px + 0px);
+    }
+    .justify:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      vertical-align: bottom;
+    }
 ```

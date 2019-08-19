@@ -31,6 +31,13 @@ git reset commitId --soft //回到某次提交的状态，那次之后的提交�
 git reset commitId --mixed(默认) //回到某次提交的状态，那次之后的提交保存在工作区，即未add
 ```
 
+git diff   
+View difference between Stage and Working Directory
+git diff --staged 
+View difference between HEAD and Stage
+git diff HEAD 
+View difference between HEAD and Working Directory
+
 ps -ef | grep nginx 查询进程号
 ps -aux|grep chromium(进程名字)
 

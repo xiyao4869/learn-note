@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>去除滚动条影响页面晃动</title>
+  <style>
+    /* 滚动栏占据宽度的特性最大的问题就是页面加载的时候水平居中的布局可能会产生晃动 */
+    div {
+      height: 5000px;
+    }
+    html {
+      overflow-y: scroll;
+    }
+    :root {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    :root body {
+      position: absolute;
+    }
+    body {
+      width: 100vw;
+      overflow: hidden;
+    }
+/* for IE8 */
+  </style>
+</head>
+<body>
+  <div>45</div>
+</body>
+</html>

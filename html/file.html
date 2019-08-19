@@ -14,6 +14,12 @@
       multiple="multiple"
       capture="user"
       accept="image/*"
+      onchange="change(files)"
     />
+    <script>
+      function change(files){
+        console.info('tag', files, typeof files, Array.isArray(files));
+      }
+    </script>
   </body>
 </html>

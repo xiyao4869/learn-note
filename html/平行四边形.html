@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>z-index</title>
+  <style>
+  /* 创建层叠上下文条件 */
+  /* z-index 值不为 "auto"的 绝对/相对定位 */
+  /* position: fixed */
+  div {
+    background: yellowgreen;
+    /* 创建层叠上下文 */
+    position: relative;
+    z-index: 0;
+  }
+  .button{
+    position: relative;
+    display: inline-block;
+    margin: 50px;
+    padding: 15px;
+    color: white;
+    font-size: 24px;
+  } 
+  .button::before{
+    background: paleturquoise;
+    z-index: -1; 
+    position: absolute;
+    content: '';
+    top: 0;left: 0;right: 0;bottom: 0;
+    /* 形成层叠上下文 */
+    transform: skewX(-45deg); 
+  }
+  </style>
+</head>
+<body>
+  <div>
+      <a class="button">click me</a>
+  </div>
+</body>
+</html>

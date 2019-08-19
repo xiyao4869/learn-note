@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* overflow: hidden 所在元素没有定位，且不存在定位的中间层，overflow：hidden 不会裁剪absolute定位的元素 */
+    .wrapper {
+      height: 0; 
+      overflow: hidden;
+      /* position: relative; */
+    }
+    .test {
+      /* position: relative; */
+    }
+    img {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="test">
+      <img src="../images/2.png" alt="">
+    </div>
+  </div>
+</body>
+</html>

@@ -42,14 +42,14 @@
     width: 850px;
     height: 500px;
   }
-  svg {
+  svg.icons {
     stroke: #000;
     stroke-width: 5;
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
     stroke-dasharray: 100;
-  animation: dash 5.5s forwards linear infinite;
+    animation: dash 5.5s forwards linear infinite;
   }
   
 
@@ -67,7 +67,7 @@
 <body>
 
 <div class="grid">
-  <svg width="750" height="500">
+  <svg width="750" height="500" class="icons">
     <defs>
     <g id="hello">
       <line x1="3" y1="3" x2="48" y2="3"></line>
@@ -117,6 +117,15 @@
   <use href="#lucy" x="200" y="200" width='40' height='40'></use>
 
 
+  </svg>
+
+
+  <svg width="60" height="34">
+    <defs>
+      <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">
+        <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: rgb(153, 153, 153);"></path></marker>
+    </defs>
+    <line x1="0" y1="17" x2="57" y2="17" stroke="#999" stroke-width="1" marker-end="url(#arrow)"></line>
   </svg>
 
 

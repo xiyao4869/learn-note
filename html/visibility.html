@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+     /* .box > .target {
+      display: none;
+      position: absolute;
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .box:hover > .target {
+      display: block;
+      opacity: 1; 
+    } */
+
+
+    .box > .target {
+      /* position: absolute; */
+      opacity: 0;
+      transition: opacity .25s;
+      /* visibility: hidden; */
+    }
+    .box:hover > .target {
+      /* visibility: visible; */
+      opacity: 1; 
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">1234
+      <div class="target">456</div>
+  </div>
+</body>
+</html>
